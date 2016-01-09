@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+double my_fun(int);
+int power(int,int);
+int main(void)
+{     
+   int n=0;
+   do   
+      n++;
+   while(my_fun(n)<=0.99999);// 只要my_fun(n)所算出的值小於等於0.99999，就要再進入迴圈 
+   printf("n=%d，my_fun(%d)>0.99999\n",n,n);//印出 當n等於某值時，此特別函數就會大於 0.99999
+      
+   system("pause");
+   return 0;
+}
+
+double my_fun(int n) //作者自定義的函數
+{
+   int k;
+   double sum=0.0;
+   for(k=1;k<=n;k++) 
+      sum= sum + (1.0/power(2,k)); //算出1除以2的k次方後，再加回sum 
+   return sum;
+}
+
+int power(int base, int n) //此題的power函數是2的n次方意思，因為基底base被永久設為2 
+{
+   int i;
+   int pow=1;
+   
+   /*例如 n=3 , for迴圈的i會跑3次
+     i=1; 1*2=2 pow =2 
+     i=2; 2*2=4 pow =4
+     i=3; 4*2=8 pow =8
+     
+   */
+    
+   for(i=1;i<=n;i++){
+      pow*=base; //pow = pow * base ;
+   }
+   return pow;
+}
+
+/* output----------------
+n=17，my_fun(17)>0.99999
+-----------------------*/

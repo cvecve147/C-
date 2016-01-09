@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main (void)
+{
+  int inputyear;
+  printf("輸入要查詢的西元:");
+  scanf("%d",&inputyear);
+  
+
+        
+        
+    if (inputyear % 4 != 0 ){ //此行的意思是若所輸入年分除以4後取餘數若不等於0，即該年分不可被4整除 
+      printf("------>所輸入的%d年為非閏年!!!!\n",inputyear );      
+    }
+    else if (inputyear < 100 ){ //1~99的部分 
+      if(inputyear % 4 ==0){
+      printf("------>所輸入的%d年為閏年~~~~~~~~~~\n",inputyear );      
+      }else{
+      printf("------>所輸入的%d年為非閏年!!!!\n",inputyear );        
+      }
+    }
+    else if (inputyear >= 100 && inputyear < 4000){  //100~3999的部分  
+      if(inputyear % 100 == 0 && inputyear % 400 != 0){
+       printf("------>所輸入的%d年為非閏年!!!!\n",inputyear );
+      }
+      else{
+      printf("------>所輸入的%d年為閏年~~~~~~~~~~\n",inputyear );
+      }
+    }
+    else if (inputyear >= 4000 ){     //>4000的部分    
+      if(   (inputyear % 100 == 0 && inputyear % 400 != 0) || inputyear % 4000 == 0){
+       printf("------>所輸入的%d年為非閏年!!!!\n",inputyear );
+      }
+      else{
+      printf("------>所輸入的%d年為閏年~~~~~~~~~~\n",inputyear );
+      }
+      
+    }        
+    
+    
+  
+  system("pause");
+  return 0;	
+}
